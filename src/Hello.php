@@ -6,7 +6,7 @@
  * Time: 5:34 PM
  */
 
-namespace KLab\TeaserModule\News\Hello;
+namespace KLab\TeaserModule\News;
 
 class Hello
 {

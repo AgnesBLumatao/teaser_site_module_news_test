@@ -1,5 +1,5 @@
 <?php
-namespace KLab\TeaserModule\News\Hello;
+namespace KLab\TeaserModule\News;
 
 class HelloTest extends \PHPUnit_Framework_TestCase
 {
