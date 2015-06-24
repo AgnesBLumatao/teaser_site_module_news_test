@@ -15,9 +15,11 @@ class Hello
         return 'hello';
     }
 
-    public static function getNewsList(DB $con)
+    public static function getNewsList($con)
     {
         $rows = $con->rows('SELECT * from news');
         return $rows;
     }
+
+
 }
