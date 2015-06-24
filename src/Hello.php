@@ -15,7 +15,7 @@ class Hello
         $rows = $con->rows('SELECT * from news');
 
         foreach($rows as $key => $value) {
-            $withing_seven_days = strtotime("+7 day", $value['publishing_date']);
+            $withing_seven_days = strtotime("+7 day", strtotime($value['publishing_date']));
             $rows[$key]['publishing_date'] = date("Y/m/d", strtotime($value['publishing_date']));
             $rows[$key]['new'] = time() <= $withing_seven_days ? true : false;
         }
