@@ -10,7 +10,7 @@ namespace KLab\TeaserModule\News;
 
 class Hello
 {
-    public static function getNewsList(SimpleDBI $con)
+    public static function getNewsList(\SimpleDBI $con)
     {
         $rows = $con->rows('SELECT * from news');
 
