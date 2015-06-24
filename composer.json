@@ -2,20 +2,6 @@
   "name": "klabteaser/news",
   "description": "This is the test package for teaser site.",
   "version": "1.0",
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "dietcake/dietcake",
-        "version": "master",
-        "source": {
-          "url": "https://github.com/dietcake/dietcake.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
-    }
-  ],
   "autoload": {
     "classmap": ["src/"]
   }

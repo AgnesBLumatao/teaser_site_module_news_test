@@ -14,4 +14,10 @@ class Hello
     {
         return 'hello';
     }
+
+    public static function getNewsList(DB $con)
+    {
+        $rows = $con->rows('SELECT * from news');
+        return $rows;
+    }
 }
