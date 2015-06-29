@@ -7,16 +7,14 @@
  */
 
 namespace KLab\TeaserModule\News;
-use \SimpleDBI;
 
 class NewsMgr
 {
     /*
      * function to add news
      */
-    public static function addNews($news_data)
+    public static function addNews(\SimpleDBI $con, $news_data)
     {
-        $con = DB::conn();
         $time = Time::now();
         $con->insert(
             'news',
@@ -34,14 +32,14 @@ class NewsMgr
     /*
      * function to update news
      */
-    public static function editNews($news_data)
+    public static function editNews(\SimpleDBI $con, $news_data)
     {
     }
 
     /*
      * function to delete news
      */
-    public static function deleteNews($news_id)
+    public static function deleteNews(\SimpleDBI $con, $news_id)
     {
         $con = DB::conn();
         $con->query('DELETE FROM news WHERE id = ?', array($news_id));

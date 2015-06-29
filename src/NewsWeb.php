@@ -7,17 +7,26 @@
  */
 
 namespace KLab\TeaserModule\News;
-use \SimpleDBI;
 
 class NewsWeb
 {
+    protected $con;
+
+    /**
+     * @param $con
+     */
+    protected function __construct(\SimpleDBI $con)
+    {
+            $this->con = $con;
+    }
+
     /*
      * function to get all news
+     * @return array
      */
-    public static function getNewsList()
+    public function getNewsList()
     {
-        $con = DB::conn();
-        $rows = $con->rows('SELECT * from news');
+        $rows = $this->con->rows('SELECT * from news');
 
         foreach($rows as $key => $value) {
             $rows[$key]['release_date'] = date("Y/m/d", strtotime($value['release_date']));
@@ -28,6 +37,7 @@ class NewsWeb
 
     /*
      * function to get new flag
+     * @return bool
      */
     public static function getNewFlag($release_date) {
         $withing_seven_days = strtotime("+7 day", strtotime($release_date));
