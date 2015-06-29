@@ -29,8 +29,8 @@ class NewsWeb
         $rows = $this->con->rows('SELECT * from news');
 
         foreach($rows as $key => $value) {
-            $rows[$key]['release_date'] = date("Y/m/d", strtotime($value['release_date']));
-            $rows[$key]['new'] = self::getNewFlag($value['release_date']);
+            $rows[$key]['publishing_date'] = date("Y/m/d", strtotime($value['publishing_date']));
+            $rows[$key]['new'] = self::getNewFlag($value['publishing_date']);
         }
         return $rows;
     }
@@ -39,8 +39,8 @@ class NewsWeb
      * function to get new flag
      * @return bool
      */
-    public static function getNewFlag($release_date) {
-        $withing_seven_days = strtotime("+7 day", strtotime($release_date));
+    public static function getNewFlag($publishing_date) {
+        $withing_seven_days = strtotime("+7 day", strtotime($publishing_date));
         return time() <= $withing_seven_days ? true : false;
     }
 }
