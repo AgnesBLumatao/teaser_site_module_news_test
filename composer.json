@@ -4,5 +4,8 @@
   "version": "1.0",
   "autoload": {
     "classmap": ["src/"]
-  }
+  },
+  "require" :{
+      "ttsuruoka/php-simple-dbi": "dev-master"
+    }
 }

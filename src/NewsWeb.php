@@ -20,13 +20,19 @@ class NewsWeb
             $this->con = $con;
     }
 
+    public function say()
+    {
+        return 'hello';
+    }
+
     /*
      * function to get all news
      * @return array
      */
     public function getNewsList()
     {
-        $rows = $this->con->rows('SELECT * from news');
+        $now = Time::now();
+        $rows = $this->con->rows('SELECT * from news WHERE publishing_date < ? AND deleted IS NOT NULL', array($now));
 
         foreach($rows as $key => $value) {
             $rows[$key]['publishing_date'] = date("Y/m/d", strtotime($value['publishing_date']));
