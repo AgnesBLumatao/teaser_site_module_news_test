@@ -15,7 +15,7 @@ class NewsWeb
     /**
      * @param $con
      */
-    protected function __construct(\SimpleDBI $con)
+    public function __construct(\SimpleDBI $con)
     {
             $this->con = $con;
     }
